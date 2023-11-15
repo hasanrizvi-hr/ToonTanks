@@ -1,6 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "BasePawn.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/StaticMeshComponent.h"
@@ -76,6 +73,4 @@ void ABasePawn::Fire()
 	//	FColor::Red,
 	//	false,
 	//	3.f);
-
-
 }
