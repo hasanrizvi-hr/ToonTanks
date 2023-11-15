@@ -1,11 +1,7 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "HealthComponent.h"
 #include "GameFramework/Actor.h"
 #include "Kismet/GameplayStatics.h"
 #include "ToonTanksGameMode.h"
-
 
 // Sets default values for this component's properties
 UHealthComponent::UHealthComponent()
@@ -16,9 +12,7 @@ UHealthComponent::UHealthComponent()
 
 	// ...
 }
-
-
-// Called when the game starts
+// Called when the game starts (sort of Tick)
 void UHealthComponent::BeginPlay()
 {
 	Super::BeginPlay();
@@ -30,7 +24,7 @@ void UHealthComponent::BeginPlay()
 	
 }
 
-// Called every frame
+// Called every frame at every Tick
 void UHealthComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
