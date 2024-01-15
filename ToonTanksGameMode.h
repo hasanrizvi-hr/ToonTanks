@@ -2,7 +2,6 @@
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
 #include "ToonTanksGameMode.generated.h"
-
 /**
  * 
  */
@@ -13,16 +12,12 @@ class TOONTANKS_API AToonTanksGameMode : public AGameModeBase
 
 public:
 	void ActorDied(AActor* DeadActor);
-
 protected:
 	virtual void BeginPlay() override;
-
 	UFUNCTION(BlueprintImplementableEvent)
 	void StartGame();
-
 	UFUNCTION(BlueprintImplementableEvent)
 	void GameOver(bool bWonGame);
-
 private:
 	class ATank* Tank;
 	class AToonTanksPlayerController* ToonTanksPlayerController;
