@@ -26,6 +26,8 @@ ABasePawn::ABasePawn()
 	ProjectileSpawnPoint = CreateDefaultSubobject<USceneComponent>(TEXT("Spawn Point"));
 	ProjectileSpawnPoint->SetupAttachment(TurretMesh);
 }
+/*date 1/16/24*/
+/*commmiting changes*/
 
 void ABasePawn::HandleDestruction()
 {
@@ -74,3 +76,4 @@ void ABasePawn::Fire()
 	//	false,
 	//	3.f);
 }
+/*Changes required were done after the querires were posted*/
