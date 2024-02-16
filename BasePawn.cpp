@@ -5,30 +5,27 @@
 #include "Math/UnrealMathUtility.h"
 #include "Projectile.h"
 #include "Particles/ParticleSystem.h"
-
 //#include "DrawDebugHelpers.h"
-
+//the resaon drawdebugger has been commented is that when we click the shoot the sphere get popped up on the screen
 // Sets default values
 ABasePawn::ABasePawn()
 {
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-	
 	CapsuleComp = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Capsule Collider"));
 	RootComponent = CapsuleComp;
-
+	*******************************************************************************
 	BaseMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Base Mesh"));
 	BaseMesh->SetupAttachment(CapsuleComp);
-
+	**************************************************************************************
 	TurretMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Turret Mesh"));
 	TurretMesh->SetupAttachment(BaseMesh);
-
+************************************************************************************************
 	ProjectileSpawnPoint = CreateDefaultSubobject<USceneComponent>(TEXT("Spawn Point"));
 	ProjectileSpawnPoint->SetupAttachment(TurretMesh);
 }
 /*date 1/16/24*/
 /*commmiting changes*/
-
 void ABasePawn::HandleDestruction()
 {
 	if (DeathParticles)
@@ -43,9 +40,7 @@ void ABasePawn::HandleDestruction()
 	{
 		GetWorld()->GetFirstPlayerController()->ClientStartCameraShake(DeathCameraShakeClass);
 	}
-	
 }
-
 void ABasePawn::RotateTurret(FVector LookAtTarget)
 {
 	FVector ToTarget = LookAtTarget - TurretMesh->GetComponentLocation();
@@ -59,12 +54,11 @@ void ABasePawn::RotateTurret(FVector LookAtTarget)
 			5.f)
 		);	
 }
-
 void ABasePawn::Fire()
 {
 	FVector Location = ProjectileSpawnPoint->GetComponentLocation();
 	FRotator Rotation = ProjectileSpawnPoint->GetComponentRotation();
-
+	*********************************************************************
 	AProjectile* Projectile = GetWorld()->SpawnActor<AProjectile>(ProjectileClass, Location, Rotation);
 	Projectile->SetOwner(this);
 	//DrawDebugSphere(
