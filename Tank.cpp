@@ -2,7 +2,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 #include "Kismet/GameplayStatics.h"
-*****************************************************************************8
+*****************************************************************************
 ATank::ATank()
 {
     SpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("Spring Arm"));
@@ -31,6 +31,8 @@ void ATank::Tick(float DeltaTime)
         RotateTurret(HitResult.ImpactPoint);
     }
 }
+****************************************************************************************************
+    //Function of destruction
 void ATank::HandleDestruction()
 {
     Super::HandleDestruction();
@@ -38,6 +40,7 @@ void ATank::HandleDestruction()
     SetActorTickEnabled(false);
     bAlive = false;
 }
+// at begin play
 void ATank::BeginPlay()
 {
     Super::BeginPlay();
